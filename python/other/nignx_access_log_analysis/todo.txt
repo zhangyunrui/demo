@@ -1,0 +1,17 @@
+
+precondition
+    1.只接受时间大于或等于当前time_key的
+
+todo
+    1.用timestamp当key *
+    2.测试密集写入 *
+    3.加入ip白名单 *
+    4.改写成多线程
+    5.改写成异步
+
+sub_todo
+    1.write_in改成只开一次一直写
+    2.了解为什么会在停在骷髅的时候起作用
+    3.recursive改成iterative
+    4.白名单装饰器
+    5.global TIME_KEY
