@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/usr/share/tsung/tsung-1.0.dtd" [] >
+<tsung loglevel="info">
+    <clients>
+        <client host="localhost" use_controller_vm="true"/>
+    </clients>
+
+    <servers>
+        <server host="127.0.0.1" port="9000" type="tcp"></server>
+    </servers>
+
+    <load>
+        <arrivalphase phase="1" duration="1" unit="minute">
+            <users maxnumber="200" interarrival="0.02" unit="second"></users>
+        </arrivalphase>
+    </load>
+
+    <sessions>
+        <session name="http-example" probability="100" type="ts_http">
+            <transaction name='get_channels'>
+                <request>
+                    <http url="/internal/content/channels/" method="GET"></http>
+                </request>
+            </transaction>
+            <transaction name='get_programs'>
+                <request>
+                    <http url="/internal/content/programs" method="GET"></http>
+                </request>
+            </transaction>
+            <transaction name='get_articles'>
+                <request>
+                    <http url="/internal/draft/articles" method="GET"></http>
+                </request>
+            </transaction>
+        </session>
+    </sessions>
+</tsung>
+
+
+
